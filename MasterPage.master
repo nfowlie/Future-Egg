@@ -11,20 +11,24 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
-        <div id="userInfo">
-            <asp:LoginStatus ID="LoginStatus1" runat="server" />
-        </div>
         <header>
-            <h2>
-                <a href="Home.aspx">Future Egg</a>
-            </h2>
+            <div id="userInfo">
+                <asp:LoginStatus ID="LoginStatus1" runat="server" />
+                <asp:LoginView ID="LoginView1" runat="server">
+                    <AnonymousTemplate>
+                        <asp:Login ID="Login1" runat="server" CreateUserText="Register" CreateUserUrl="register.aspx" Orientation="Horizontal" RememberMeText="Remember me" TitleText="">
+                        </asp:Login>
+                    </AnonymousTemplate>
+                </asp:LoginView>
+            </div>
+            <div id="logo">
+                <a href="Home.aspx"><img src="Images/Future-Egg-Logo.png" /></a>
+            </div>
         </header>
         <div id="advertisement">
             <a href="http://www.newegg.com"><img src="Images/new.jpg" /></a>
         </div>
         <nav>
-                
             <asp:TreeView ID="TreeView1" runat="server" ImageSet="Arrows">
                 <HoverNodeStyle Font-Underline="True" ForeColor="#5555DD" />
                 <Nodes>
@@ -57,7 +61,6 @@
 
         </asp:ContentPlaceHolder>
         </section>
-    </div>
     </form>
 </body>
 </html>

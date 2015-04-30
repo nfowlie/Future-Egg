@@ -3,30 +3,23 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <div>
-    <br /><br />
-            <asp:DetailsView ID="DetailsView1" runat="server" AutoGenerateRows="False" BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" CellPadding="3" DataSourceID="SqlDataSource1" GridLines="Horizontal" Height="50px" Width="125px" CssClass="pGrid">
-            <AlternatingRowStyle BackColor="#F7F7F7" />
-            <EditRowStyle BackColor="#738A9C" Font-Bold="True" ForeColor="#F7F7F7" />
-            <Fields>
-                <asp:ImageField DataImageUrlField="ProductImage" HeaderText="Product Image">
-                </asp:ImageField>
-                <asp:BoundField DataField="ProductName" HeaderText="ProductName" SortExpression="ProductName" />
-                <asp:BoundField DataField="ProductDescription" HeaderText="ProductDescription" SortExpression="ProductDescription" />
-                <asp:BoundField DataField="Price" HeaderText="Price" SortExpression="Price" />
-                <asp:BoundField DataField="ProductType" HeaderText="ProductType" SortExpression="ProductType" />
-            </Fields>
-            <FooterStyle BackColor="#B5C7DE" ForeColor="#4A3C8C" />
-            <HeaderStyle BackColor="#4A3C8C" Font-Bold="True" ForeColor="#F7F7F7" />
-            <PagerStyle BackColor="#E7E7FF" ForeColor="#4A3C8C" HorizontalAlign="Right" />
-            <RowStyle BackColor="#E7E7FF" ForeColor="#4A3C8C" />
-        </asp:DetailsView>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Products.mdf;Integrated Security=True" ProviderName="System.Data.SqlClient" SelectCommand="SELECT [ProductName], [ProductDescription], [Price], [ProductImage], [ProductType] FROM [Products] WHERE ([ID] = @ID)">
-            <SelectParameters>
-                <asp:QueryStringParameter Name="ID" QueryStringField="id" Type="Int32" />
-            </SelectParameters>
-        </asp:SqlDataSource>
-    
-    </div>
+    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="ID" DataSourceID="SqlDataSource2" CssClass="mGrid" PagerStyle-CssClass="pgr" GridLines="None" AlternatingRowStyle-CssClass="alt">
+<AlternatingRowStyle CssClass="alt"></AlternatingRowStyle>
+        <Columns>
+            <asp:ImageField DataImageUrlField="ProductImage" HeaderText="Product Image">
+            </asp:ImageField>
+            <asp:BoundField DataField="ProductName" HeaderText="ProductName" SortExpression="ProductName" />
+            <asp:BoundField DataField="ProductDescription" HeaderText="ProductDescription" SortExpression="ProductDescription" />
+            <asp:BoundField DataField="Price" DataFormatString="{0:c}" HeaderText="Price" SortExpression="Price" />
+            <asp:HyperLinkField DataNavigateUrlFields="ID,ProductName,Price" DataNavigateUrlFormatString="cart.aspx?id={0}&amp;pn={1}&amp;pr={2}" HeaderText="Add to Cart" Text="Add to Cart" />
+        </Columns>
+
+<PagerStyle CssClass="pgr"></PagerStyle>
+    </asp:GridView>
+    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Products.mdf;Integrated Security=True" ProviderName="System.Data.SqlClient" SelectCommand="SELECT * FROM [Products] WHERE ([ID] = @ID)">
+        <SelectParameters>
+            <asp:QueryStringParameter Name="ID" QueryStringField="id" Type="Int32" />
+        </SelectParameters>
+    </asp:SqlDataSource>
 </asp:Content>
 

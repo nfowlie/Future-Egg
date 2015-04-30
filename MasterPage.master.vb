@@ -11,5 +11,14 @@ Partial Class MasterPage
         Dim type As String = TreeView1.SelectedNode.Value
         Response.Redirect("Catalog.aspx?Type=" + type)
     End Sub
+
+    Protected Sub Page_Load(sender As Object, e As EventArgs) Handles Me.Load
+        If (HttpContext.Current.User.Identity.IsAuthenticated) Then
+            LoginView1.Visible = False
+        Else
+            LoginStatus1.Visible = False
+        End If
+        products.Width = Unit.Percentage(80)
+    End Sub
 End Class
 
