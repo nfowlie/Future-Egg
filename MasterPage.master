@@ -24,10 +24,11 @@
             <div id="logo">
                 <a href="Home.aspx"><img src="Images/Future-Egg-Logo.png" /></a>
             </div>
+            <div id="advertisement">
+                <a href="http://www.newegg.com"><img src="Images/new.jpg" /></a>
+            </div>
         </header>
-        <div id="advertisement">
-            <a href="http://www.newegg.com"><img src="Images/new.jpg" /></a>
-        </div>
+        
         <nav>
             <asp:TreeView ID="TreeView1" runat="server" ImageSet="Arrows">
                 <HoverNodeStyle Font-Underline="True" ForeColor="#5555DD" />

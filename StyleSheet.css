@@ -14,7 +14,7 @@ nav {
 }
 
 #advertisement{
-    text-align:center
+    text-align:center;
 }
 
 header {
@@ -27,9 +27,18 @@ section {
     float:left;
 }
 #userInfo {
-    text-align: right;
-    width: 100%;
-    height: 5%;
+    width: 80%;
+    height: 15%;
+    position:absolute;
+    top:0px;
+    right:10px;
+    text-align:right;
+}
+#logo {
+    height:15%;
+    width: 20%;
+    position:absolute;
+    top:0px;
 }
 
 a:link{
