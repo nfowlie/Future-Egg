@@ -79,7 +79,19 @@ a:hover{
 .mGrid .pgr a {color: #666; text-decoration: none;}
 .mGrid .pgr a:hover {color: #000; text-decoration: none;}
 
-
+.pGrid { border: solid 1px #FFFFFF; }
+    .pGrid td {
+        border: solid 1px #FFFFFF;
+        margin: 1px 1px 1px 1px;
+        padding: 1px 1px 1px 1px;
+        background-color: #fff;
+        color: #000;
+    }
+ 
+.pGridAltItem
+{
+background-color: white;
+}
     body {
       -webkit-font-smoothing: antialiased;
       font: normal 15px/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
