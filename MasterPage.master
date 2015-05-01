@@ -30,28 +30,37 @@
         </header>
         
         <nav>
-            <asp:TreeView ID="TreeView1" runat="server" ImageSet="Arrows">
-                <HoverNodeStyle Font-Underline="True" ForeColor="#5555DD" />
-                <Nodes>
-                    <asp:TreeNode Text="CPU" Value="CPU"></asp:TreeNode>
-                    <asp:TreeNode Text="RAM" Value="RAM"></asp:TreeNode>
-                    <asp:TreeNode Text="Computer Cases" Value="Case"></asp:TreeNode>
-                    <asp:TreeNode Text="Hard Drives" Value="Hard Drives">
-                        <asp:TreeNode Text="SSD" Value="SSD"></asp:TreeNode>
-                        <asp:TreeNode Text="HDD" Value="HDD"></asp:TreeNode>
-                    </asp:TreeNode>
-                    <asp:TreeNode Text="Graphics Cards" Value="Graphics Card"></asp:TreeNode>
-                    <asp:TreeNode Text="Power Supply" Value="Power Supply"></asp:TreeNode>
-                    <asp:TreeNode Text="Motherboards" Value="Motherboard"></asp:TreeNode>
-                    <asp:TreeNode NavigateUrl="FAQ.aspx" Text="FAQ" Value="FAQ"></asp:TreeNode>
-                    <asp:TreeNode NavigateUrl="ContactUs.aspx" Text="Contact Us" Value="Contact Us"></asp:TreeNode>
-                    <asp:TreeNode NavigateUrl="AboutUs.aspx" Text="About Us" Value="About Us"></asp:TreeNode>
-                </Nodes>
-                <NodeStyle Font-Names="Tahoma" Font-Size="10pt" ForeColor="Black" HorizontalPadding="5px" NodeSpacing="0px" VerticalPadding="0px" />
-                <ParentNodeStyle Font-Bold="False" />
-                <SelectedNodeStyle Font-Underline="True" ForeColor="#5555DD" HorizontalPadding="0px" VerticalPadding="0px" />
-            </asp:TreeView>
-                
+            <ul>
+                <li>
+                    <a href="Home.aspx"><span>Home</span></a>
+                </li>
+                <li class="active has-sub">
+                    <a href="#"><span>Hardware</span></a>
+                    <ul>
+                        <li><a href="Catalog.aspx?Type=CPU"><span>CPU</span></a></li>
+                        <li><a href="Catalog.aspx?Type=RAM"><span>RAM</span></a></li>
+                        <li><a href="Catalog.aspx?Type=Case"><span>Case</span></a></li>
+                        <li class="has-sub"><a href="#"><span>Hard Drives</span></a>
+                            <ul>
+                                <li><a href="Catalog.aspx?Type=HDD"><span>HDD</span></a></li>
+                                <li><a href="Catalog.aspx?Type=SSD"><span>SSD</span></a></li>
+                            </ul>
+                        </li>
+                        <li><a href="Catalog.aspx?Type=Graphics Card"><span>Graphics Card</span></a></li>
+                        <li><a href="Catalog.aspx?Type=Power Supply"><span>Power Supply</span></a></li>
+                        <li><a href="Catalog.aspx?Type=Motherboards"><span>Motherboard</span></a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="FAQ.aspx"><span>FAQ</span></a>
+                </li>
+                <li>
+                    <a href="ContactUs.aspx"><span>Contact Us</span></a>
+                </li>
+                <li>
+                    <a href="AboutUs.aspx"><span>About Us</span></a>
+                </li>
+            </ul>            
         </nav>
         <div id ="search">
             <asp:TextBox ID="products" Name="products" runat="server"></asp:TextBox>

@@ -7,11 +7,6 @@ Partial Class MasterPage
         Response.Redirect("Catalog.aspx?ProductDescription=" + item)
     End Sub
 
-    Protected Sub TreeView1_SelectedNodeChanged(sender As Object, e As EventArgs) Handles TreeView1.SelectedNodeChanged
-        Dim type As String = TreeView1.SelectedNode.Value
-        Response.Redirect("Catalog.aspx?Type=" + type)
-    End Sub
-
     Protected Sub Page_Load(sender As Object, e As EventArgs) Handles Me.Load
         If (HttpContext.Current.User.Identity.IsAuthenticated) Then
             LoginView1.Visible = False
