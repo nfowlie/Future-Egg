@@ -12,6 +12,7 @@ Partial Class MasterPage
             LoginView1.Visible = False
         Else
             LoginStatus1.Visible = False
+            Label1.Visible = False
         End If
         products.Width = Unit.Percentage(80)
     End Sub

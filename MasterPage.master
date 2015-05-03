@@ -13,7 +13,7 @@
     <form id="form1" runat="server">
         <header>
             <div id="userInfo">
-                <asp:LoginStatus ID="LoginStatus1" runat="server" />
+                <a href="Cart.aspx"><asp:Label ID="Label1" runat="server" Text="Cart"></asp:Label></a>&nbsp;&nbsp;&nbsp;&nbsp;<asp:LoginStatus ID="LoginStatus1" runat="server" />
                 <asp:LoginView ID="LoginView1" runat="server">
                     <AnonymousTemplate>
                         <asp:Login ID="Login1" runat="server" CreateUserText="Register" CreateUserUrl="register.aspx" Orientation="Horizontal" RememberMeText="Remember me" TitleText="">
@@ -71,6 +71,9 @@
 
         </asp:ContentPlaceHolder>
         </section>
+        <footer>
+            <a href="https://www.facebook.com/profile.php?id=100009568358005&fref=ts"><img src="Images/facebook.png" /></a>
+        </footer>
     </form>
 </body>
 </html>

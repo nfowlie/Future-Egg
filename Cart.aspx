@@ -4,6 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <h2>Cart page</h2>
+    <p>&nbsp;</p>
 
     <%
     'Declare arrays prefixed as t (temp) and c (cart)
@@ -156,8 +157,8 @@
         'Store the ordertotal in a session variable
         Session("ordertotal") = ordertotal
         Response.Write("<p><input type='submit' name='submit' value='Update Cart' /></p>")
-        Response.Write("<p><a href='Catalog.aspx'>Continue Shopping</a></p>")
-        Response.Write("<p><a href='checkout.aspx'>Checkout</a></p>")
+            Response.Write("<p><a href='Home.aspx'>Continue Shopping</a></p>")
+            Response.Write("<p><a href='Payment.aspx'>Continue to Payment</a></p>")
     Else
         Response.Write("<p> The shopping cart is empty. <a href='shop.aspx'>Click here </a> to go to shopping page. </p>")
         

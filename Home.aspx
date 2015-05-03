@@ -7,9 +7,9 @@
     <div id="placeholderdiv">
         <div class ="container">
             <div id="slides">
-                <a href="Product.aspx?id=1"><img src="Images/Banner/1.jpg" /></a>
-                <a href="Product.aspx?id=2"><img src="Images/Banner/2.jpg" /></a>
-                <a href="Product.aspx?id=9"><img src="Images/Banner/9.jpg" /></a>
+                <a href="Product.aspx?id=1"><img src="Images/Banner/1.png" /></a>
+                <a href="Product.aspx?id=2"><img src="Images/Banner/2.png" /></a>
+                <a href="Product.aspx?id=9"><img src="Images/Banner/9.png" /></a>
             </div>
         </div>
         <script src="/Scripts/jquery-1.10.2.min.js"></script>

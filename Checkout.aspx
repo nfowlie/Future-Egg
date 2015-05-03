@@ -7,6 +7,8 @@
 <p>
     <asp:Label ID="checkoutOrder" runat="server"></asp:Label>
 </p>
+<p>
+    Thank you for your order.</p>
     <%
         Session.Clear()
         %>
