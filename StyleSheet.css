@@ -9,7 +9,6 @@ footer {
     text-align: center;
     float: left;
     width: 100%;
-    bottom: 0px;
 }
 footer img{
     width:50px;
@@ -99,10 +98,10 @@ nav a {
     text-transform: uppercase;
 }
 nav > ul {
-    width:200px;
+    width:100%;
 }
 nav ul ul {
-    width: 200px;
+    width: 100%;
 }
 nav > ul > li > a {
     border-right: 4px solid #1b9bff;
@@ -143,7 +142,7 @@ nav ul ul {
     border-radius: 0 3px 3px 0;
 }
 nav ul ul {
-    border: 1x solid #0082e7;
+    border: 1px solid #0082e7;
 }
 nav ul ul a{
     font-size: 12px;
@@ -202,10 +201,6 @@ nav.align-right ul ul {
     -moz-border-radius: 3px 0 0 3px;
     border-radius: 3px 0 0 3px;
 }
-#search {
-    width:80%;
-    float:left;
-}
 
 #advertisement{
     text-align:center;
@@ -215,7 +210,7 @@ header {
     width:100%;
     height:15%;
 }
-section {
+section, #search {
     width:80%;
     height:80%;
     float:left;

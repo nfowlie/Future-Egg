@@ -8,6 +8,7 @@
     <asp:ContentPlaceHolder id="head" runat="server">
     </asp:ContentPlaceHolder>
     <link href="StyleSheet.css" rel="stylesheet" type="text/css" />
+    <link href="StyleSheet-Mobile.css" rel="stylesheet" media="only screen and (max-width:600px)"/>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -28,8 +29,7 @@
                 <a href="http://www.newegg.com"><img src="Images/new.jpg" /></a>
             </div>
         </header>
-        
-        <nav>
+        <nav id="id">
             <ul>
                 <li>
                     <a href="Home.aspx"><span>Home</span></a>
