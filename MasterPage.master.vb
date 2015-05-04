@@ -17,6 +17,7 @@ Partial Class MasterPage
             Label1.Visible = False
         End If
         products.Width = Unit.Percentage(80)
+        Session("userName") = Page.User.Identity.Name
 
     End Sub
 
