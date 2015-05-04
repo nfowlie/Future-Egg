@@ -15,9 +15,16 @@ Partial Class Checkout
 
         Dim itemCount As Integer = Session("orders")
         For i As Integer = 0 To itemCount - 1
-            orderProductName = orderProductName & ", " & Session("scart")(i, 1)
-            orderPrice = orderPrice & ", " & Session("scart")(i, 2).ToString
-            orderProductQuantity = orderProductQuantity & ", " & Session("scart")(i, 3).ToString
+            If i = 0 Then
+                orderProductName = orderProductName & "" & Session("scart")(i, 1)
+                orderPrice = orderPrice & "" & Session("scart")(i, 2).ToString
+                orderProductQuantity = orderProductQuantity & "" & Session("scart")(i, 3).ToString
+            Else
+                orderProductName = orderProductName & ", " & Session("scart")(i, 1)
+                orderPrice = orderPrice & ", " & Session("scart")(i, 2).ToString
+                orderProductQuantity = orderProductQuantity & ", " & Session("scart")(i, 3).ToString
+            End If
+                
         Next
         Label1.Text = orderProductName
         Label2.Text = orderPrice
@@ -36,7 +43,7 @@ Partial Class Checkout
 
         Dim sqlConnection1 As New SqlConnection(connString)
 
-        sql = "INSERT INTO OrderHistory (ProductName, ProductPrice, ProductQuantity) VALUES (@ProductName, @ProductPrice, @ProductQuantity);"
+        sql = "INSERT INTO OrderHistory (paymentID, userName, ProductName, ProductPrice, ProductQuantity) VALUES (@paymentID, @userName, @ProductName, @ProductPrice, @ProductQuantity);"
 
         Dim cmd As New System.Data.SqlClient.SqlCommand
         cmd.CommandType = System.Data.CommandType.Text
@@ -45,6 +52,8 @@ Partial Class Checkout
 
         sqlConnection1.Open()
 
+        cmd.Parameters.AddWithValue("@paymentID", Session("paymentID"))
+        cmd.Parameters.AddWithValue("@userName", Session("userName"))
         cmd.Parameters.AddWithValue("@ProductName", orderProductName)
         cmd.Parameters.AddWithValue("@ProductPrice", orderPrice)
         cmd.Parameters.AddWithValue("@ProductQuantity", orderProductQuantity)
@@ -52,11 +61,11 @@ Partial Class Checkout
         Try
             n = cmd.ExecuteNonQuery()
         Catch ex As SqlException
-            
+
         End Try
 
         If n > 0 Then
-            
+
         End If
 
 
