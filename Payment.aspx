@@ -7,7 +7,7 @@
     <link href="StyleSheet.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-    <form id="form1" runat="server" action="Checkout.aspx">
+    <form id="form1" runat="server">
                 <header>
             <div id="userInfo">
                 <a href="Cart.aspx"><asp:Label ID="Label1" runat="server" Text="Cart"></asp:Label></a>&nbsp;&nbsp;&nbsp;&nbsp;<asp:LoginStatus ID="LoginStatus1" runat="server" />
@@ -77,7 +77,7 @@
     </p>
     <p id="Email">
         Email:
-        <asp:TextBox ID="email" runat="server" TextMode="Email"></asp:TextBox>
+        <asp:TextBox ID="email" runat="server"></asp:TextBox>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ErrorMessage="Please enter email" ControlToValidate="email" Display="Dynamic"></asp:RequiredFieldValidator>
         <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="email" Display="Dynamic" ErrorMessage="Please enter correct email format" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
     </p>
@@ -129,6 +129,11 @@
         <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ControlToValidate="securityCode" ErrorMessage="Enter in a valid security code" ValidationExpression="[0-9][0-9][0-9]"></asp:RegularExpressionValidator>
     </p>
     <p><asp:Button ID="Button2" runat="server" Text="Continue to Checkout" /></p>
+            <p>
+                <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
+                <asp:Label ID="Label3" runat="server" Text="Label"></asp:Label>
+                <asp:Button ID="Button3" runat="server" Text="Button" />
+            </p>
             </section>
     </form>
 </body>

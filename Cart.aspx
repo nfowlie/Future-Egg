@@ -154,13 +154,15 @@
         'We declare three buttons of type submit, which is submitted to form
         Response.Write("<div>The total order value is : " & FormatCurrency(ordertotal, 2) & "</div><br />")
 
+            'Stores ccart in scart'
+            Session("scart") = ccart
         'Store the ordertotal in a session variable
         Session("ordertotal") = ordertotal
         Response.Write("<p><input type='submit' name='submit' value='Update Cart' /></p>")
             Response.Write("<p><a href='Home.aspx'>Continue Shopping</a></p>")
             Response.Write("<p><a href='Payment.aspx'>Continue to Payment</a></p>")
     Else
-        Response.Write("<p> The shopping cart is empty. <a href='shop.aspx'>Click here </a> to go to shopping page. </p>")
+        Response.Write("<p> The shopping cart is empty. <a href='Home.aspx'>Click here </a> to go to shopping page. </p>")
         
     End If
 
