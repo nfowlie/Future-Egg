@@ -22,6 +22,7 @@ Partial Class ExistingPayment
         Else
             Label2.Visible = True
         End If
+        Session("userName") = Page.User.Identity.Name
     End Sub
 
     Protected Sub GridView1_PreRender(sender As Object, e As EventArgs) Handles GridView1.PreRender

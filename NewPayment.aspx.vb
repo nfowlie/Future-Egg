@@ -7,6 +7,7 @@ Partial Class Payment
 
     Protected Sub Page_Load(sender As Object, e As System.EventArgs) Handles Me.Load
         checkoutOrder.Text = "Your total order value is: " & FormatCurrency(Session("ordertotal"))
+        Session("userName") = Page.User.Identity.Name
     End Sub
 
     Protected Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click

@@ -129,8 +129,7 @@
         <li><a name="question7">What payment options do I have as a consumer?</a>
         </li>
             <ul>
-                <li>We accept all major credit cards as well as Bitcoin.
-            </li>
+                <li>We only accept Visa Cards at the moment.&nbsp; In the future we will accept more payment options.</li>
             </ul>
     </ul>
     <p>

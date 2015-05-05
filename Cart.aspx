@@ -160,9 +160,16 @@
         'Store the ordertotal in a session variable
         Session("ordertotal") = ordertotal
         Response.Write("<p><input type='submit' name='submit' value='Update Cart' /></p>")
-            Response.Write("<p><a href='Home.aspx'>Continue Shopping</a></p>")
-            Response.Write("<p><a href='ExistingPayment.aspx'>Use Existing Payment</a></p>")
-            Response.Write("<p><a href='NewPayment.aspx'>Enter New Payment</a></p>")
+            If Session("stateTax") Then
+                Response.Write("<p><a href='Home.aspx'>Continue Shopping</a></p>")
+                Response.Write("<p><a href='Checkout.aspx'>Checkout</a></p>")
+                Response.Write("<p><a href='ExistingPayment.aspx'>Choose a different Payment option</a></p>")
+                Response.Write("<p><a href='NewPayment.aspx'>Enter New Payment</a></p>")
+            Else
+                Response.Write("<p><a href='Home.aspx'>Continue Shopping</a></p>")
+                Response.Write("<p><a href='ExistingPayment.aspx'>Use Existing Payment</a></p>")
+                Response.Write("<p><a href='NewPayment.aspx'>Enter New Payment</a></p>")
+            End If
     Else
         Response.Write("<p> The shopping cart is empty. <a href='Home.aspx'>Click here </a> to go to shopping page. </p>")
         

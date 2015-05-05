@@ -10,7 +10,7 @@
     <form id="form1" runat="server">
                 <header>
             <div id="userInfo">
-                <a href="Cart.aspx"><asp:Label ID="Label1" runat="server" Text="Cart"></asp:Label></a>&nbsp;&nbsp;&nbsp;&nbsp;<asp:LoginStatus ID="LoginStatus1" runat="server" />
+                <a href="User.aspx"><Asp:LoginName id ="LoginName1" runat="server" FormatString="{0}" />&nbsp;&nbsp;&nbsp;&nbsp;</a><a href="Cart.aspx"><asp:Label ID="Label1" runat="server"  Text="Cart"></asp:Label></a>&nbsp;&nbsp;&nbsp;&nbsp;<asp:LoginStatus ID="LoginStatus1" runat="server" />
                 <asp:LoginView ID="LoginView1" runat="server">
                     <AnonymousTemplate>
                         <asp:Login ID="Login1" runat="server" CreateUserText="Register" CreateUserUrl="register.aspx" Orientation="Horizontal" RememberMeText="Remember me" TitleText="">
