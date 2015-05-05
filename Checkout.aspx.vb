@@ -12,6 +12,10 @@ Partial Class Checkout
         Dim orderProductName As String = ""
         Dim orderProductQuantity As String = ""
         Dim orderPrice As String = ""
+        Dim OrderNumberGenerated As Integer = Rnd(10)
+        Dim OrderDate As String = DateTime.Today.ToString
+
+
 
         Dim itemCount As Integer = Session("orders")
         For i As Integer = 0 To itemCount - 1
@@ -43,7 +47,7 @@ Partial Class Checkout
 
         Dim sqlConnection1 As New SqlConnection(connString)
 
-        sql = "INSERT INTO OrderHistory (paymentID, userName, ProductName, ProductPrice, ProductQuantity) VALUES (@paymentID, @userName, @ProductName, @ProductPrice, @ProductQuantity);"
+        sql = "INSERT INTO OrderHistory (OrderNumber, paymentID, userName, ProductName, ProductPrice, ProductQuantity) VALUES (@OrderNumber, @paymentID, @userName, @ProductName, @ProductPrice, @ProductQuantity);"
 
         Dim cmd As New System.Data.SqlClient.SqlCommand
         cmd.CommandType = System.Data.CommandType.Text
@@ -51,7 +55,7 @@ Partial Class Checkout
         cmd.Connection = sqlConnection1
 
         sqlConnection1.Open()
-
+        cmd.Parameters.AddWithValue("@OrderNumber", OrderNumberGenerated)
         cmd.Parameters.AddWithValue("@paymentID", Session("paymentID"))
         cmd.Parameters.AddWithValue("@userName", Session("userName"))
         cmd.Parameters.AddWithValue("@ProductName", orderProductName)
@@ -70,22 +74,6 @@ Partial Class Checkout
 
 
         cmd.Connection.Close()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         Session.Clear()
 

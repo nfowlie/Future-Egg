@@ -51,7 +51,7 @@
                         </li>
                         <li><a href="Catalog.aspx?Type=Graphics Card"><span>Graphics Card</span></a></li>
                         <li><a href="Catalog.aspx?Type=Power Supply"><span>Power Supply</span></a></li>
-                        <li><a href="Catalog.aspx?Type=Motherboards"><span>Motherboard</span></a></li>
+                        <li><a href="Catalog.aspx?Type=Motherboard"><span>Motherboard</span></a></li>
                     </ul>
                 </li>
                 <li>

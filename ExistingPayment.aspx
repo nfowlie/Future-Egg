@@ -67,7 +67,7 @@
     </p>
             <p>
     Select Payment Info:&nbsp;
-                <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource1" DataTextField="cardNumber" DataValueField="Id">
+                <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource1" DataTextField="cardNumber" DataValueField="Id" AppendDataBoundItems="True">
                 </asp:DropDownList>
                 <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\OrderHistory.mdf;Integrated Security=True" ProviderName="System.Data.SqlClient" SelectCommand="SELECT [Id], [cardNumber] FROM [PaymentInfo] WHERE ([userName] = @userName)">
                     <SelectParameters>
