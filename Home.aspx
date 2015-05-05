@@ -4,7 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <layer id="placeholderlayer"></layer>
-    <div id="placeholderdiv">
+    
         <div class ="container">
             <div id="slides">
                 <a href="Product.aspx?id=1"><img src="Images/Banner/1.png" /></a>
@@ -32,6 +32,6 @@
                     });
             })
         </script>
-    </div>
+    
 </asp:Content>
 

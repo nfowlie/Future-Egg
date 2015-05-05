@@ -18,6 +18,8 @@ Partial Class MasterPage
         End If
         products.Width = Unit.Percentage(80)
         Session("userName") = Page.User.Identity.Name
+        Dim url As String = HttpContext.Current.Request.Url.AbsoluteUri
+
 
     End Sub
 

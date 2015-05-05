@@ -10,7 +10,7 @@
     <form id="form1" runat="server">
                 <header>
             <div id="userInfo">
-                <a href="User.aspx"><Asp:LoginName id ="LoginName1" runat="server" FormatString="{0}" />&nbsp;&nbsp;&nbsp;&nbsp;</a><a href="Cart.aspx"><asp:Label ID="Label1" runat="server"  Text="Cart"></asp:Label></a>&nbsp;&nbsp;&nbsp;&nbsp;<asp:LoginStatus ID="LoginStatus1" runat="server" />
+                <a href="User.aspx"><Asp:LoginName id ="LoginName1" runat="server" FormatString="{0}" />&nbsp;&nbsp;&nbsp;&nbsp;</a><a href="Cart.aspx"><asp:Label ID="Label1" runat="server"  Text="Cart"></asp:Label></a>&nbsp;&nbsp;&nbsp;&nbsp;<asp:LoginStatus ID="LoginStatus1" runat="server" LogoutAction="Redirect" LogoutPageUrl="~/Home.aspx" />
                 <asp:LoginView ID="LoginView1" runat="server">
                     <AnonymousTemplate>
                         <asp:Login ID="Login1" runat="server" CreateUserText="Register" CreateUserUrl="register.aspx" Orientation="Horizontal" RememberMeText="Remember me" TitleText="">
@@ -121,7 +121,7 @@
         <asp:TextBox ID="cardExpirationdate" runat="server" TextMode="Month" Width="148px"></asp:TextBox>
         &nbsp;
         <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ControlToValidate="cardExpirationdate" Display="Dynamic" ErrorMessage="Please enter expiration date"></asp:RequiredFieldValidator>
-        <asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server" ControlToValidate="cardExpirationdate" ErrorMessage="Month/Year" ValidationExpression="^(1[0-2]|0[1-9]|\d)\/(20\d{2}|19\d{2}|0(?!0)\d|[1-9]\d)$"></asp:RegularExpressionValidator>
+        <asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server" ControlToValidate="cardExpirationdate" ErrorMessage="Month/Year Format (00/00)" ValidationExpression="^(1[0-2]|0[1-9]|\d)\/(20\d{2}|19\d{2}|0(?!0)\d|[1-9]\d)$"></asp:RegularExpressionValidator>
     </p>
     <p>
         Security code:
