@@ -24,7 +24,7 @@ Partial Class Checkout
         Dim n As Integer
         Dim connString As String
 
-        connString = "Data Source=(LocalDB)\v11.0;AttachDbFilename=C:\Users\Neil\Dropbox\Group8\App_Data\OrderHistory.mdf;Integrated Security=True"
+        connString = "Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\OrderHistory.mdf;Integrated Security=True"
 
         Dim sqlConnection1 As New SqlConnection(connString)
 
