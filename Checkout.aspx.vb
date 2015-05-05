@@ -25,9 +25,9 @@ Partial Class Checkout
         Dim connString As String
 
         connString = "Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\OrderHistory.mdf;Integrated Security=True"
-
+        'Opens connection to database'
         Dim sqlConnection1 As New SqlConnection(connString)
-
+        'Stores items in cart for adding to databse'
         Dim itemCount As Integer = Session("orders")
         For i As Integer = 0 To itemCount - 1
                 orderProductName = Session("scart")(i, 1)
@@ -35,14 +35,14 @@ Partial Class Checkout
             orderProductQuantity = Session("scart")(i, 3)
 
             orderPrice = orderPrice * orderProductQuantity
-
+            'Query to add items to databse'
             sql = "INSERT INTO OrderHistory (OrderNumber, paymentID, userName, ProductName, ProductPrice, ProductQuantity) VALUES (@OrderNumber, @paymentID, @userName, @ProductName, @ProductPrice, @ProductQuantity);"
 
             Dim cmd As New System.Data.SqlClient.SqlCommand
             cmd.CommandType = System.Data.CommandType.Text
             cmd.CommandText = sql
             cmd.Connection = sqlConnection1
-
+            'Adds items to database'
             sqlConnection1.Open()
             cmd.Parameters.AddWithValue("@OrderNumber", OrderNumberGenerated)
             cmd.Parameters.AddWithValue("@paymentID", Session("paymentID"))

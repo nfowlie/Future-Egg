@@ -145,6 +145,7 @@
                 Response.Write(" name='qty" & i)
                 Response.Write("' value = '" & ccart(i, 3) & "' /></td>")
                 itemtotal = CDbl(ccart(i, 2)) * CInt(ccart(i, 3))
+                'Adds appropriate tax by state'
                 ordertotal = ordertotal + itemtotal + (itemtotal * Session("stateTax"))
                 Response.Write("<td>" & FormatCurrency(itemtotal, 2) & "</td>")
                 Response.Write("<td><input type='checkbox' ")
@@ -159,13 +160,15 @@
             Session("scart") = ccart
         'Store the ordertotal in a session variable
         Session("ordertotal") = ordertotal
-        Response.Write("<p><input type='submit' name='submit' value='Update Cart' /></p>")
+            Response.Write("<p><input type='submit' name='submit' value='Update Cart' /></p>")
+            'Displays if payment option selected'
             If Session("stateTax") Then
                 Response.Write("<p><a href='Home.aspx'>Continue Shopping</a></p>")
                 Response.Write("<p><a href='Checkout.aspx'>Checkout</a></p>")
                 Response.Write("<p><a href='ExistingPayment.aspx'>Choose a different Payment option</a></p>")
                 Response.Write("<p><a href='NewPayment.aspx'>Enter New Payment</a></p>")
             Else
+                'displayes if no payment selected'
                 Response.Write("<p><a href='Home.aspx'>Continue Shopping</a></p>")
                 Response.Write("<p><a href='ExistingPayment.aspx'>Use Existing Payment</a></p>")
                 Response.Write("<p><a href='NewPayment.aspx'>Enter New Payment</a></p>")

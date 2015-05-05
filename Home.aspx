@@ -15,7 +15,7 @@
         <script src="/Scripts/jquery-1.10.2.min.js"></script>
 
         <script src="/Scripts/jquery.slides.min.js"></script>
-
+    <%-- Rotating banner --%>
         <script>
             $(function()
             {

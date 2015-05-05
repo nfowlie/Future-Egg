@@ -2,6 +2,7 @@
 Partial Class Catalog
     Inherits System.Web.UI.Page
     Protected Sub GridView1_PreRender(sender As Object, e As EventArgs) Handles GridView1.PreRender
+        'Makes it so you have to be logged in in order to order products'
         For i As Integer = 0 To GridView1.Rows.Count - 1
             If (HttpContext.Current.User.Identity.IsAuthenticated) Then
             Else
