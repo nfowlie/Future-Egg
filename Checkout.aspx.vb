@@ -12,30 +12,11 @@ Partial Class Checkout
         Dim orderProductName As String = ""
         Dim orderProductQuantity As String = ""
         Dim orderPrice As String = ""
-        Dim OrderNumberGenerated As Integer = Rnd(10)
+        Dim OrderNumberGenerater As New Random
+        Dim OrderNumberGenerated As Integer
         Dim OrderDate As String = DateTime.Today.ToString
 
-
-
-        Dim itemCount As Integer = Session("orders")
-        For i As Integer = 0 To itemCount - 1
-            If i = 0 Then
-                orderProductName = orderProductName & "" & Session("scart")(i, 1)
-                orderPrice = orderPrice & "" & Session("scart")(i, 2).ToString
-                orderProductQuantity = orderProductQuantity & "" & Session("scart")(i, 3).ToString
-            Else
-                orderProductName = orderProductName & ", " & Session("scart")(i, 1)
-                orderPrice = orderPrice & ", " & Session("scart")(i, 2).ToString
-                orderProductQuantity = orderProductQuantity & ", " & Session("scart")(i, 3).ToString
-            End If
-                
-        Next
-        Label1.Text = orderProductName
-        Label2.Text = orderPrice
-        Label3.Text = orderProductQuantity
-
-
-
+        OrderNumberGenerated = CInt(OrderNumberGenerater.Next(1, 999999999))
 
 
 
@@ -47,33 +28,43 @@ Partial Class Checkout
 
         Dim sqlConnection1 As New SqlConnection(connString)
 
-        sql = "INSERT INTO OrderHistory (OrderNumber, paymentID, userName, ProductName, ProductPrice, ProductQuantity) VALUES (@OrderNumber, @paymentID, @userName, @ProductName, @ProductPrice, @ProductQuantity);"
+        Dim itemCount As Integer = Session("orders")
+        For i As Integer = 0 To itemCount - 1
+                orderProductName = Session("scart")(i, 1)
+            orderPrice = Session("scart")(i, 2)
+            orderProductQuantity = Session("scart")(i, 3)
 
-        Dim cmd As New System.Data.SqlClient.SqlCommand
-        cmd.CommandType = System.Data.CommandType.Text
-        cmd.CommandText = sql
-        cmd.Connection = sqlConnection1
+            orderPrice = orderPrice * orderProductQuantity
 
-        sqlConnection1.Open()
-        cmd.Parameters.AddWithValue("@OrderNumber", OrderNumberGenerated)
-        cmd.Parameters.AddWithValue("@paymentID", Session("paymentID"))
-        cmd.Parameters.AddWithValue("@userName", Session("userName"))
-        cmd.Parameters.AddWithValue("@ProductName", orderProductName)
-        cmd.Parameters.AddWithValue("@ProductPrice", orderPrice)
-        cmd.Parameters.AddWithValue("@ProductQuantity", orderProductQuantity)
+            sql = "INSERT INTO OrderHistory (OrderNumber, paymentID, userName, ProductName, ProductPrice, ProductQuantity) VALUES (@OrderNumber, @paymentID, @userName, @ProductName, @ProductPrice, @ProductQuantity);"
 
-        Try
-            n = cmd.ExecuteNonQuery()
-        Catch ex As SqlException
+            Dim cmd As New System.Data.SqlClient.SqlCommand
+            cmd.CommandType = System.Data.CommandType.Text
+            cmd.CommandText = sql
+            cmd.Connection = sqlConnection1
 
-        End Try
+            sqlConnection1.Open()
+            cmd.Parameters.AddWithValue("@OrderNumber", OrderNumberGenerated)
+            cmd.Parameters.AddWithValue("@paymentID", Session("paymentID"))
+            cmd.Parameters.AddWithValue("@userName", Session("userName"))
+            cmd.Parameters.AddWithValue("@ProductName", orderProductName)
+            cmd.Parameters.AddWithValue("@ProductPrice", orderPrice)
+            cmd.Parameters.AddWithValue("@ProductQuantity", orderProductQuantity)
 
-        If n > 0 Then
+            Try
+                n = cmd.ExecuteNonQuery()
+            Catch ex As SqlException
 
-        End If
+            End Try
 
+            If n > 0 Then
 
-        cmd.Connection.Close()
+            End If
+
+            cmd.Connection.Close()
+
+        Next
+
 
         Session.Clear()
 
