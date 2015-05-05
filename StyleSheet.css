@@ -5,7 +5,7 @@
 body {
     background-color: lightgray;
 }
-#footer {
+footer {
     bottom: 0px;
     position:relative;
     text-align: center;
@@ -14,7 +14,7 @@ body {
     z-index: -1;
     margin-top: 25px;
 }
-#footer img{
+footer img{
     width:50px;
     height:50px;
 }

@@ -75,9 +75,9 @@
         </asp:ContentPlaceHolder>
         </section>
         
-        <div id ="footer">
-            <a href="https://www.facebook.com/profile.php?id=100009568358005&fref=ts"><img src="Images/facebook.png" /></a>
-        </div>
+        <footer>
+            <a href="https://www.facebook.com/pages/Future-Egg/472939009528872?fref=ts"><img src="Images/facebook.png" /></a>
+        </footer>
     </form>
 </body>
 </html>
