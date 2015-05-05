@@ -12,7 +12,7 @@
                 <asp:ImageField DataImageUrlField="ProductImage" HeaderText="Product Image">
                 </asp:ImageField>
                 <asp:HyperLinkField DataNavigateUrlFields="ID" DataNavigateUrlFormatString="Product.aspx?id={0}" DataTextField="ProductName" HeaderText="Product Name" />
-                <asp:BoundField DataField="Price" HeaderText="Price" SortExpression="Price" />
+                <asp:BoundField DataField="Price" HeaderText="Price" SortExpression="Price" DataFormatString="{0:c}" />
                 <asp:BoundField DataField="ProductType" HeaderText="ProductType" SortExpression="ProductType" />
                 <asp:HyperLinkField DataNavigateUrlFields="ID,ProductName,Price" DataNavigateUrlFormatString="cart.aspx?id={0}&amp;pn={1}&amp;pr={2}" HeaderText="Add to Cart" Text="Add to Cart" />
             </Columns>

@@ -60,8 +60,10 @@
             </ul>            
         </nav>
         <section>
-    <p>
-        Payment Page</p>
+    <h2>
+        Payment Page
+    </h2>
+        
     <p>
     <asp:Label ID="checkoutOrder" runat="server"></asp:Label>
     </p>
@@ -77,7 +79,7 @@
                 </asp:SqlDataSource>
                 </p>
             <p>
-                <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource2">
+                <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource2" CssClass="mGrid" PagerStyle-CssClass="pgr" GridLines="None" AlternatingRowStyle-CssClass="alt">
                     <Columns>
                         <asp:BoundField DataField="firstName" HeaderText="firstName" SortExpression="firstName" />
                         <asp:BoundField DataField="lastName" HeaderText="lastName" SortExpression="lastName" />
@@ -97,7 +99,12 @@
                     </SelectParameters>
                 </asp:SqlDataSource>
             </p>
-            <p><a href="Checkout.aspx">Continue to Checkout</a></p>
+            <p>
+                <a href="Checkout.aspx"><asp:Label ID="Label2" runat="server" Text="Continue to checkout"></asp:Label></a></p>
+                <a href="NewPayment.aspx">Add New Payment Option</a>
+            <br />
+            <asp:Label ID="Label3" runat="server" Text="Label"></asp:Label>
+            
             </section>
     </form>
 </body>

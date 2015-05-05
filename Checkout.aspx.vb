@@ -8,7 +8,7 @@ Partial Class Checkout
     Protected Sub Page_Load(sender As Object, e As System.EventArgs) Handles Me.Load
 
 
-        checkoutOrder.Text = "Your total order value is: " & FormatCurrency(Session("ordertotal"))
+        checkoutOrder.Text = "Your total order value is: " & FormatCurrency(Session("orderTotal") + (Session("ordertotal") * Session("stateTax")))
         Dim orderProductName As String = ""
         Dim orderProductQuantity As String = ""
         Dim orderPrice As String = ""

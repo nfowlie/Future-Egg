@@ -119,6 +119,7 @@
     ccart = Session("scart")
     orders = Session("orders")
     
+        
     If orders > 0 Then
         ordertotal = 0
         
@@ -135,21 +136,21 @@
         'Note how the quantity text boxes are declared with name=
         'and value= using i
 
-        For i = 0 To orders - 1
-            Response.Write("<tr>")
-            Response.Write("<td>" & ccart(i, 0) & "</td>")
-            Response.Write("<td>" & ccart(i, 1) & "</td>")
-            Response.Write("<td>" & FormatCurrency((ccart(i, 2)), 2) & "</td>")
-            Response.Write("<td><input type='textbox' size='5' ")
-            Response.Write(" name='qty" & i)
-            Response.Write("' value = '" & ccart(i, 3) & "' /></td>")
-            itemtotal = CDbl(ccart(i, 2)) * CInt(ccart(i, 3))
-            ordertotal = ordertotal + itemtotal
-            Response.Write("<td>" & FormatCurrency(itemtotal, 2) & "</td>")
-            Response.Write("<td><input type='checkbox' ")
-            Response.Write(" name='chk" & i & "' /></td>")
-            Response.Write("</tr>")
-        Next
+            For i = 0 To orders - 1
+                Response.Write("<tr>")
+                Response.Write("<td>" & ccart(i, 0) & "</td>")
+                Response.Write("<td>" & ccart(i, 1) & "</td>")
+                Response.Write("<td>" & FormatCurrency(ccart(i, 2), 2) & "</td>")
+                Response.Write("<td><input type='textbox' size='5' ")
+                Response.Write(" name='qty" & i)
+                Response.Write("' value = '" & ccart(i, 3) & "' /></td>")
+                itemtotal = CDbl(ccart(i, 2)) * CInt(ccart(i, 3))
+                ordertotal = ordertotal + itemtotal + (itemtotal * Session("stateTax"))
+                Response.Write("<td>" & FormatCurrency(itemtotal, 2) & "</td>")
+                Response.Write("<td><input type='checkbox' ")
+                Response.Write(" name='chk" & i & "' /></td>")
+                Response.Write("</tr>")
+            Next
         Response.Write("</table></div>")
         'We declare three buttons of type submit, which is submitted to form
         Response.Write("<div>The total order value is : " & FormatCurrency(ordertotal, 2) & "</div><br />")
